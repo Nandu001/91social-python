@@ -1,0 +1,9 @@
+adddate() {
+    while IFS= read -r line; do
+        printf '%s %s\n' "$(date)" "$line";
+    done
+}
+
+./thisscript.sh | adddate >>/var/log/logfile
+./thatscript.sh | adddate >>/var/log/logfile
+./theotherscript.sh | adddate >>/var/log/logfile
